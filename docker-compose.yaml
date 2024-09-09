@@ -1,0 +1,16 @@
+services:
+  app:
+    build:
+      context: ..
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/data
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:h2:file:/data/test
+      SPRING_DATASOURCE_USERNAME: sa
+      SPRING_DATASOURCE_PASSWORD: sa
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.H2Dialect
+      SPRING_JPA_HIBERNATE_DDL_AUTO: create-drop
+      SPRING_H2_CONSOLE_ENABLED: "true"
+      SPRING_H2_CONSOLE_PATH: /h2-console
